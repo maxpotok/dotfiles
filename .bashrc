@@ -87,7 +87,13 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
+# Aliases
+alias install="sudo apt-get install"
+alias update="sudo apt-get update"
+alias upgrade="sudo apt-get upgrade"
+alias g="git"
+alias n="nano"
+alias md="mkdir"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
