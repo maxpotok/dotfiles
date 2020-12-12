@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
-
 echo "----------------------------------------------------------------------------------------------------------------"
 echo ""
 echo "	• ▌ ▄ ·.  ▄▄▄· ▐▄• ▄ 		User:		$(whoami)"
@@ -17,20 +12,26 @@ echo "--------------------------------------------------------------------------
 
 echo "Executing tasks:"
 
-apt-get update
-apt-get install curl
-apt-get install htop
-apt-get install python3
-apt-get install python3-pip
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
-apt-get install apt-transport-https
-echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
-apt-get update
-apt-get install sublime-text
-apt-get install tmux
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root to install apps"
+else
+	apt-get update
+	apt-get install curl
+	apt-get install git-all
+	apt-get install htop
+	apt-get install python3
+	apt-get install python3-pip
+	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
+	apt-get install apt-transport-https
+	echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
+	apt-get update
+	apt-get install sublime-text
+	apt-get install tmux
+fi
 
-echo "setting up git"
+echo "Setting up git"
+
 git config --global user.name "Maksymilian Potok"
 git config --global user.email makspotok@gmail.com
 
-echo "done!"
+echo "Done!"
