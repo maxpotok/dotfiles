@@ -74,6 +74,12 @@ else
 fi
 unset color_prompt force_color_prompt
 
+# Setting bash prompt
+if [ "$EUID" -ne 0 ]
+	then export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+	else export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]ROOT\[$(tput setaf 2)\]@\[$(tput setaf 4)\]$(hostname | awk '{print toupper($0)}') \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+fi
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -99,10 +105,13 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Aliases
+alias s="sudo"
 alias install="sudo apt-get install"
+alias remove="sudo apt-get remove"
 alias update="sudo apt-get update"
 alias upgrade="sudo apt-get upgrade"
 alias +x="sudo chmod +x"
+alias rmd="sudo rm -rf"
 alias g="git"
 alias n="nano"
 alias md="mkdir"
