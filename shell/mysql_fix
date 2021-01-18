@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# ERROR 2002 (HY000): Can't connect to local MySQL server through
+# socket '/var/run/mysqld/mysqld.sock' (2)
+
+mkdir /var/lib/mysql-files
+
+sudo chown -R mysql:mysql /var/lib/mysql-files/
+
+sudo chmod 700 /var/lib/mysql-files/
