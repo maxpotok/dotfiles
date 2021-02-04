@@ -108,16 +108,17 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Aliases
-alias s="sudo"
-alias install="sudo apt-get install"
-alias remove="sudo apt-get remove"
-alias update="sudo apt-get update"
-alias upgrade="sudo apt-get upgrade"
+alias install="sudo apt install"
+alias remove="sudo apt remove"
+alias update="sudo apt update"
+alias upgrade="sudo apt upgrade"
 alias +x="sudo chmod +x"
-alias rmd="sudo rm -rf"
 alias g="git"
-alias n="nano"
+alias nano="sudo nano -l"
 alias md="mkdir"
+alias systemctl="sudo systemctl"
+alias wget="sudo wget"
+alias tar="sudo tar"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
